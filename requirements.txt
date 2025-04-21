@@ -2,3 +2,5 @@ google.generativeai
 pymupdf
 django
 gunicorn
+psycopg2-binary
+whitenoise

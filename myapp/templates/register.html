@@ -1,0 +1,383 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Procols Register</title>
+
+	<link rel="icon" href="{% static 'img/icon.png' %}" type="img/png">
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/sourcesanspro-font.css">
+	<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+	<!-- Main Style Css -->
+    
+	<meta name="robots" content="noindex, follow">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Garamond', serif;
+			
+			 
+		  }
+		  
+		  .page-content {
+			width: 100%;
+			margin: 0 auto;
+			background-image: url("{% static 'img/register_page.jpg' %}");
+			background-size: cover; /* scales image to cover entire area */
+			background-repeat: no-repeat; /* avoids repeating */
+			background-position: center center; /* centers the image */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		  }
+
+		  @keyframes fadeSlideIn {
+			0% {
+			  opacity: 0;
+			  transform: translateY(30px);
+			}
+			100% {
+			  opacity: 1;
+			  transform: translateY(0);
+			}
+		  }
+		  
+
+		  .form-v8-content {
+			background: #fff;
+			width: 937px;
+			border-radius: 8px;
+			box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+			margin: 177px 0;
+			color: #fff;
+			position: relative;
+			display: flex;
+			animation: fadeSlideIn 1s ease-out forwards;
+		  }
+		  
+		  .form-left img {
+			width: 537px;
+			height:100%;
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
+		  }
+		  
+		  .form-right {
+			padding: 30px 0;
+			width: 100%;
+			background:rgb(0, 1, 3);
+			border-top-right-radius: 8px;
+			border-bottom-right-radius: 8px;
+		  }
+		  
+		  .tab {
+			margin: 5px 0 48px;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		  }
+		  
+		  .tab .tab-inner {
+			width: 100%;
+		  }
+		  
+		  .tab .tablinks {
+			background: transparent;
+			border: none;
+			font-size: 28px;
+			font-weight: 400;
+			color: #ccc;
+			padding-bottom: 22px;
+			border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+			width: 100%;
+		  }
+		  
+		  .tab .tablinks.active {
+			font-weight: 700;
+			color: #fff;
+			border-bottom-color: white;
+		  }
+		  
+		  .form-detail {
+			padding: 0 40px;
+		  }
+		  
+		  .form-row {
+			width: 100%;
+			position: relative;
+		  }
+		  
+		  .form-row-inner {
+			width: 100%;
+			position: relative;
+		  }
+		  
+		  .label {
+			position: absolute;
+			top: -2px;
+			left: 10px;
+			font-size: 18px;
+			color: #f2f2f2;
+			font-weight: 400;
+			transform-origin: 0 0;
+			transition: all .2s ease;
+		  }
+		  
+		  .border {
+			position: absolute;
+			bottom: 31px;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background: #800080;
+			transform: scaleX(0);
+			transform-origin: 0 0;
+			transition: all .15s ease;
+		  }
+		  
+		  .input-text {
+			margin-bottom: 31px;
+			width: 100%;
+			padding: 0px 10px 15px 10px;
+			border: 1px solid transparent;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+			background: transparent;
+			outline: none;
+			font-size: 18px;
+			color: #fff;
+			font-weight: 300;
+			box-sizing: border-box;
+		  }
+		  
+		  .input-text:focus {
+			border-bottom: 1px solid #800080;
+			background: transparent;
+		  }
+		  
+		  .input-text:focus + .label,
+		  .input-text:valid + .label {
+			transform: translateY(-26px) scale(1);
+		  }
+		  
+		  .input-text:focus + .border,
+		  .input-text:valid + .border {
+			transform: scaleX(1);
+		  }
+		  @keyframes glowPulse {
+			0% {
+			  box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
+			}
+			50% {
+			  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+			}
+			100% {
+			  box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
+			}
+		  }
+		  
+		  .register {
+			background: #fff;
+			border-radius: 5px;
+			width: 160px;
+			border: none;
+			margin: 5px 0 50px 0px;
+			cursor: pointer;
+			font-weight: 700;
+			font-size: 18px;
+			color: #333;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			animation: glowPulse 2s infinite ease-in-out;
+		  }
+		  
+		  .register:hover {
+			background: #ccc;
+			transform: scale(1.1);
+  			background-color: #eee;
+  			animation-play-state: paused;
+		  }
+		  
+		  .form-row {
+			opacity: 0;
+			transform: translateY(20px);
+			animation: revealInput 0.6s ease forwards;
+		  }
+		  
+		  .form-row:nth-child(1) { animation-delay: 0.2s; }
+		  .form-row:nth-child(2) { animation-delay: 0.4s; }
+		  .form-row:nth-child(3) { animation-delay: 0.6s; }
+		  .form-row:nth-child(4) { animation-delay: 0.8s; }
+		  .form-row:nth-child(5) { animation-delay: 1s; }
+		  .form-row:nth-child(6) { animation-delay: 1.2s; }
+		  
+		  @keyframes revealInput {
+			to {
+			  opacity: 1;
+			  transform: translateY(0);
+			}
+		  }
+		  
+		  /* Responsive */
+		  @media screen and (max-width: 991px) {
+			.form-v8-content {
+			  margin: 180px 20px;
+			  flex-direction: column;
+			}
+			.form-left {
+			  width: 100%;
+			}
+			.form-left img {
+			  width: 100%;
+			  border-bottom-left-radius: 0px;
+			  border-top-right-radius: 8px;
+			}
+			.form-right {
+			  width: auto;
+			  border-top-right-radius: 0;
+			  border-bottom-left-radius: 8px;
+			}
+			.tab {
+			  margin-top: 45px;
+			}
+			.register {
+			  margin-bottom: 80px;
+			}
+		  }
+		  
+		  @media screen and (max-width: 325px) {
+			.tab {
+			  flex-direction: column;
+			}
+		  }
+		  
+		.form-v8-content .form-left img {
+			border-top-left-radius: 8px;
+			border-bottom-left-radius: 8px;
+			transition: transform 0.5s ease, box-shadow 0.5s ease;
+			will-change: transform;
+		}
+
+		.form-v8-content .form-left img:hover {
+			transform: scale(1.1);
+			box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+		}
+		
+
+	</style>
+</head>
+<body class="form-v8">
+	<div class="page-content">
+		<div class="form-v8-content">
+			<div class="form-left">
+				<a href="/"><img src="{% static 'img/reg-sid.jpg' %}" alt="form"></a>
+
+			</div>
+			<div class="form-right">
+				<div class="tab">
+					<div class="tab-inner">
+						<button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen" >FREE CONSULTATION</button>
+
+					</div>
+					
+				</div>
+				<form class="form-detail" action="{% url 'register' %}" method='POST'>
+
+					{% csrf_token %}
+					<div class="tabcontent" id="sign-up">
+					  <div class="form-row">
+						<label class="form-row-inner">
+						  <input type="text" name="Your_Name" id="full_name" class="input-text" required>
+						  <span class="label">Your Name</span>
+						  <span class="border"></span>
+						</label>
+					  </div>
+				  
+					  <div class="form-row">
+						<label class="form-row-inner">
+						  <input type="text" name="Email" id="your_email" class="input-text" required>
+						  <span class="label">E-Mail</span>
+						  <span class="border"></span>
+						</label>
+					  </div>
+				  
+					  <!-- 📱 Phone Number -->
+					  <div class="form-row">
+						<label class="form-row-inner">
+						  <input type="text" name="Mobile_No" id="phone_no" class="input-text" required>
+						  <span class="label">Phone Number</span>
+						  <span class="border"></span>
+						</label>
+					  </div>
+
+					  <div class="form-row">
+						<label class="form-row-inner">
+						  <input type="text" name="City" id="city" class="input-text" required>
+						  <span class="label">City</span>
+						  <span class="border"></span>
+						</label>
+					  </div>
+				  
+					  <!-- 🎓 College Name -->
+					  <div class="form-row">
+						<label class="form-row-inner">
+						  <input type="text" name="College_Name" id="college_name" class="input-text" required>
+						  <span class="label">College Name</span>
+						  <span class="border"></span>
+						</label>
+					  </div>
+					  <!-- 🏙️ Department -->
+					  <div class="form-row">
+						<label class="form-row-inner">
+						  <input type="text" name="Department" id="department" class="input-text" required>
+						  <span class="label">Department</span>
+						  <span class="border"></span>
+						</label>
+					  </div>
+				  
+					  <!-- 🏙️ City -->
+					
+				  
+					  <div class="form-row-last">
+						<button href="/" name="register" class="register" value="Submit">Submit</button>
+					  </div>
+					</div>
+				  </form>
+				  
+				  
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function openCity(evt, cityName) {
+		    var i, tabcontent, tablinks;
+		    tabcontent = document.getElementsByClassName("tabcontent");
+		    for (i = 0; i < tabcontent.length; i++) {
+		        tabcontent[i].style.display = "none";
+		    }
+		    tablinks = document.getElementsByClassName("tablinks");
+		    for (i = 0; i < tablinks.length; i++) {
+		        tablinks[i].className = tablinks[i].className.replace(" active", "");
+		    }
+		    document.getElementById(cityName).style.display = "block";
+		    evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

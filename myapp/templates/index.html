@@ -20,6 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Major Mono Display&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <link href="{% static "css/main4.css"%}" rel="stylesheet">
@@ -45,6 +46,9 @@
     }
     .floating-button {
       position: fixed;
+      display: flex;
+  align-items: center;
+  justify-content: center;
       bottom: 20px;
       right: 20px;
       width: 40px;
@@ -63,11 +67,46 @@
     .floating-button:hover {
       background-color: rgba(0, 0, 0, 0.6);
     }
+    #mainNavbar {
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    #mainNavbar canvas {
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: -1 !important;
+      pointer-events: none;
+    }
+    #hero {
+      position: relative;
+      overflow: hidden;
+      height: 100vh; /* Or whatever height fits your layout */
+      color: white;
+      z-index: 1;
+    }
+    
+    #heroVideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    
   </style>
 </head>
 <body>
   <a href="#hero" class="floating-button">
-  <i class="bi bi-chevron-up"></i>
+  <i  class="bi bi-chevron-up"></i>
   </a>
   
   
@@ -121,13 +160,17 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
-
-      <img src="{% static "img/frontbg.jpg" %}" alt="" data-aos="fade-in">
-
+      <!-- 🎥 Video background -->
+      <video autoplay muted loop playsinline id="heroVideo">
+        <source src="{% static 'img/vido.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    
+      <!-- 💬 Overlay content -->
       <div class="container d-flex flex-column align-items-center">
-        <h2 data-aos="fade-up" data-aos-delay="100">College UG Project</h2>
-        <p data-aos="fade-up" data-aos-delay="200">A to Z Fully Provided (Mini and Final Year Project) On Affordable Price</p>
-        <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
+        <h2>College UG Project</h2>
+        <p>A to Z Fully Provided (Mini and Final Year Project) On Affordable Price</p>
+        <div class="d-flex mt-4">
           <a href="/register" ><button href="/register" class="button" style="--clr: #7808d0">
             <span class="button__icon-wrapper">
               <svg
@@ -158,10 +201,10 @@
             </span>
             FREE CONSULTATION
           </button></a>
-
         </div>
       </div>
-    </section><!-- End Hero Section -->
+    </section>
+    <!-- End Hero Section -->
     {% if messages %}
       <script>
       {% for message in messages %}
@@ -179,13 +222,14 @@
 
     <!-- Services Section -->
     <section id="services" class="services section">
+      
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up" class="service-item animate-left">
         <h2 style="color: white;">PROJECTS</h2>
         <p style="color: white;">Featured PROJECTS<br></p>
         <p class="slide-in-loop" style="font-size:1.2rem;">
-          -> We are Specially give a Computer Science project with code sources
+          -> We are Specially given a Computer Science project with code sources
         </p>
         <p style="font-size:1.2rem;" class="slide-in-loop">-> All Department project are given a full documentation with Clear Explanation</p>
         <p style="font-size:1.2rem;" class="slide-in-loop">-> We are supporting till the project End date</p>
@@ -274,7 +318,7 @@
                   <i class="bi bi-controller"></i>
                 </div>
                 
-                  <h3>Gaming Project</h3>
+                  <h3>Gaming Projects</h3>
                 </a>
                 <p></p>
               </div>
@@ -330,7 +374,7 @@
             <div class="service-item d-flex position-relative h-100">
               <i class="bi bi-2-circle"></i>
               <div>
-                <h4 class="title"> Topic Comfirmation</h4>
+                <h4 class="title"> Topic Comformation</h4>
                 <p class="description">After the topic confirmed, we provide sample source code report and PPT Review .</p>
               </div>
             </div>
@@ -419,9 +463,47 @@
     {% include "about.html" %}
     
     {% include "footer.html" %}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static "js/main1.js" %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+
+    
+    
+<script>
+  VANTA.WAVES({
+    el: "#mainNavbar",  // ✅ This matches your nav ID
+    mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x0,
+  shininess: 40.00,
+  waveSpeed: 0.65,
+  zoom: 1.39
+  });
+
+  VANTA.WAVES({
+    el: ".bgg",  // ✅ This matches your nav ID
+    mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x0,
+  shininess: 40.00,
+  waveSpeed: 0.65,
+  zoom: 1.39
+  });
+
+  </script>
+
 
 
   </body>

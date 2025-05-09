@@ -1454,16 +1454,12 @@ ul.list-group li {
 /* contact.css */
 
 /* GENERAL BODY */
+#contact {
+font-family: 'Garamond', serif;
+font-weight: 700;
+letter-spacing: 1px;
 
-@import url('https://fonts.googleapis.com/css?family=Exo:100');
-
-@keyframes bg-scrolling-reverse {
-  100% {
-    background-position: 50px 50px;
-  }
 }
-
-
 
 /* TEXT ANIMATION */
 h1, p {

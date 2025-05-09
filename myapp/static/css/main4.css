@@ -1197,7 +1197,7 @@ transform: translateY(0);
 --------------------------------------------------------------*/
 
 .navbar-modern {  
-background-image: linear-gradient( 109.6deg,  rgba(15,2,2,1) 11.2%, rgb(0, 0, 0) 91.1% );   
+   
 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 transition: all 0.3s ease;
 }
@@ -1454,16 +1454,16 @@ ul.list-group li {
 /* contact.css */
 
 /* GENERAL BODY */
-#contact {
-font-family: 'Garamond', serif;
-font-weight: 700;
-letter-spacing: 1px;
-background: black !important;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center center;
-color: white !important;
+
+@import url('https://fonts.googleapis.com/css?family=Exo:100');
+
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
 }
+
+
 
 /* TEXT ANIMATION */
 h1, p {
@@ -1865,3 +1865,4 @@ transform: rotate(90deg);
 transition-duration: .3s;
 transform-origin:right;
 } */
+

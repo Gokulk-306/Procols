@@ -100,6 +100,23 @@
       z-index: -1;
       pointer-events: none;
     }
+    @import url('https://fonts.googleapis.com/css?family=Exo:100');
+
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+.infinite-scroll-bg {
+  background-image: 
+    linear-gradient(90deg, rgba(120, 8, 208, 0.15) 1px, transparent 1px),
+    linear-gradient(rgba(120, 8, 208, 0.15) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: bg-scrolling-reverse 0.92s linear infinite;
+}
+
+
     
     
   </style>
@@ -221,7 +238,7 @@
 
 
     <!-- Services Section -->
-    <section id="services" class="services section">
+    <section id="services" class="services section infinite-scroll-bg">
       
 
       <!-- Section Title -->
@@ -229,7 +246,7 @@
         <h2 style="color: white;">PROJECTS</h2>
         <p style="color: white;">Featured PROJECTS<br></p>
         <p class="slide-in-loop" style="font-size:1.2rem;">
-          -> We are Specially given a Computer Science project with code sources
+          -> We are Specially give Computer Science project with code sources
         </p>
         <p style="font-size:1.2rem;" class="slide-in-loop">-> All Department project are given a full documentation with Clear Explanation</p>
         <p style="font-size:1.2rem;" class="slide-in-loop">-> We are supporting till the project End date</p>
@@ -348,7 +365,7 @@
 
     </section><!-- /Services Section -->
     <!-- Services 2 Section -->
-    <section id="services-2" class="services-2 section light-background" class="member animate-right">
+    <section id="services-2" class="services-2 section infinite-scroll-bg" class="member animate-right">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -374,7 +391,7 @@
             <div class="service-item d-flex position-relative h-100">
               <i class="bi bi-2-circle"></i>
               <div>
-                <h4 class="title"> Topic Comformation</h4>
+                <h4 class="title"> Topic Comfirmation</h4>
                 <p class="description">After the topic confirmed, we provide sample source code report and PPT Review .</p>
               </div>
             </div>
@@ -429,7 +446,7 @@
     <!-- Testimonials Section -->
 
     <!-- Team Section -->
-    <section id="team" class="team section light-background">
+    <section id="team" class="team section infinite-scroll-bg">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up" class="section-title animate-top">

@@ -16,4 +16,4 @@ EXPOSE 8000
 
 # Default command: Gunicorn as WSGI server
 # If your Flask app entry point is app.py and 'app' is the Flask instance, adjust as follows:
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "apps:app"]

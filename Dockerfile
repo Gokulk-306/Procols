@@ -1,18 +1,19 @@
-# Use official base image for Python web apps, e.g., Flask
+# Use the official Python image for best compatibility and security
 FROM python:3.10-slim
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy requirements (if present) and install dependencies
-COPY requirements.txt requirements.txt
+# Copy requirements and install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the source code
+# Copy application code
 COPY . .
 
-# Expose the port (update to your web server's port, e.g., 5000 for Flask)
-EXPOSE 5000
+# Expose the port that Gunicorn will serve on
+EXPOSE 8000
 
-# Start the application (adjust as per your entry point)
-CMD ["python", "app.py"]
+# Default command: Gunicorn as WSGI server
+# If your Flask app entry point is app.py and 'app' is the Flask instance, adjust as follows:
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
